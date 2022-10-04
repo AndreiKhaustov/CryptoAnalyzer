@@ -22,6 +22,7 @@ public class Main {
            encodingLines = Encode.textEncode(text, key);
             String link = args[1];
             String[] ArrayLink = link.split("\\.");
+            Files.deleteIfExists(Path.of(ArrayLink[0] + "(encoded)" + "." + ArrayLink[1]));
             Path path = Files.createFile(Path.of(ArrayLink[0] + "(encoded)" + "." + ArrayLink[1]));
             Files.write(path, encodingLines);
         }
@@ -29,8 +30,12 @@ public class Main {
             decodingLines = Decode.textDecode(text, key);
             String link = args[1];
             String[] ArrayLink = link.split("\\(encoded\\)");
+            Files.deleteIfExists(Path.of(ArrayLink[0] + "(decoded)" + ArrayLink[1]));
             Path path = Files.createFile(Path.of(ArrayLink[0] + "(decoded)" + ArrayLink[1]));
             Files.write(path, decodingLines);
+        }
+        else if(args[0].equalsIgnoreCase("bruteForce")) {
+
         }
 
     }
