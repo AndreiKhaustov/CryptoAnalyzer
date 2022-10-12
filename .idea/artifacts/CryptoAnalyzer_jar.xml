@@ -2,7 +2,11 @@
   <artifact type="jar" name="CryptoAnalyzer:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/CryptoAnalyzer_jar</output-path>
     <root id="archive" name="CryptoAnalyzer.jar">
-      <element id="module-output" name="CryptoAnalyzer" />
+      <element id="archive" name="Crypto_archive.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/CryptoAnalyzer_jar/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>
