@@ -1,5 +1,8 @@
-package org.example;
+package Main;
 
+
+import org.projectComponents.Decode;
+import org.projectComponents.Encode;
 
 import java.io.IOException;
 import java.nio.file.Files;
