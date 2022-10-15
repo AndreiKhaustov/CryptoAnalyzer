@@ -10,8 +10,6 @@ public class FilesPathsConverter {
 
     public static Path handleExistingFilesPath(String sourcePathString, NameOfOperation nameOfOperating) {
 
-
-
         switch (nameOfOperating) {
 
             case ENCODE: {
@@ -37,16 +35,16 @@ public class FilesPathsConverter {
         }
         return destinationPath;
     }
-            public static Path handleExistingFilesPath(String sourcePathString, int key)
-        {
-            String[] sourcePathCharArray = sourcePathString.split("\\(encoded\\)");
-            try {
-                destinationPath = Files.createFile(Path.of(sourcePathCharArray[0] + " decoded key-" + key + sourcePathCharArray[1]));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            return destinationPath;
+
+    public static Path handleExistingFilesPath(String sourcePathString, int key) {
+        String[] sourcePathCharArray = sourcePathString.split("\\(encoded\\)");
+        try {
+            destinationPath = Files.createFile(Path.of(sourcePathCharArray[0] + " decoded key-" + key + sourcePathCharArray[1]));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+        return destinationPath;
+    }
 
 
 }
