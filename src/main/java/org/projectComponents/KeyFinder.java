@@ -17,6 +17,9 @@ public class KeyFinder {
 
 
     public static Map<Character, Integer> getStatisticData(String text) {
+        /**
+         * Заношу в мапу буквы алфавита
+         */
         Map<Character, Integer> statistic = new HashMap<>();
         for (Character character : littleAlphabet) {
             statistic.put(character, 0);
@@ -24,6 +27,9 @@ public class KeyFinder {
         for (Character character : bigAlphabet) {
             statistic.put(character, 0);
         }
+        /**
+         * Через метод мердж считаю, какая буква сколько раз повторяется в тексте.
+         */
         for (int i = 0; i < text.length(); i++) {
             if(Character.isAlphabetic(text.charAt(i))) {
                 statistic.merge(text.charAt(i), 1, (oldValue, newValue) -> oldValue + newValue);
@@ -40,6 +46,11 @@ public class KeyFinder {
         Character compChar = null;
         int indexOfCompChar = 0;
         int indexOfsrcChar = 0;
+
+        /**
+         * В двух первых циклах ищу самые частые буквы.
+         */
+
         for (Map.Entry<Character, Integer> value1 : statOfSrcText.entrySet()) {
             if (value1.getValue() > countOfSrcChar) {
                 countOfSrcChar = value1.getValue();
@@ -52,6 +63,10 @@ public class KeyFinder {
                 compChar = value.getKey();
             }
         }
+        /**
+         * Нахожу индексы этих букв в списке алфавита.
+         */
+
         for (int i = 0; i < littleAlphabet.size(); i++) {
             if (compChar.equals(littleAlphabet.get(i))) {
                 indexOfCompChar = i;
@@ -66,6 +81,9 @@ public class KeyFinder {
                 indexOfsrcChar = i;
             }
         }
+        /**
+         * Считаю итоговый ключ.
+         */
        int key = littleAlphabet.size()-indexOfsrcChar+indexOfCompChar;
         return key;
     }
