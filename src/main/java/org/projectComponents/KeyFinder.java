@@ -17,6 +17,7 @@ public class KeyFinder {
 
 
     public static Map<Character, Integer> getStatisticData(String text) {
+
         /**
          * Заношу в мапу буквы алфавита
          */
