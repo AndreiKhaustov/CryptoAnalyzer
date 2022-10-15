@@ -8,6 +8,7 @@ public class KeyFinder {
     public static final List<Character> bigAlphabet = Arrays.asList('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
 
     public static int findKey(String srcText,String referenceText) {
+
         Map<Character,Integer> statOfCompText = getStatisticData(referenceText);
         Map<Character,Integer> statOfSrcText = getStatisticData(srcText);
 
